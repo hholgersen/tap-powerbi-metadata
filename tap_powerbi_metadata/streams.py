@@ -30,12 +30,10 @@ class OAuthActiveDirectoryAuthenticator(OAuthAuthenticator):
     @property
     def oauth_request_body(self) -> dict:
         return {
-            'grant_type': 'password',
-            'scope': 'https://api.powerbi.com',
-            'resource': 'https://analysis.windows.net/powerbi/api',
+            'grant_type': 'client_credentials',
+            'scope': 'https://analysis.windows.net/powerbi/api/.default',
             'client_id': self.config["client_id"],
-            'username': self.config["username"],
-            'password': self.config["password"],
+            'client_secret': self.config["password"],
         }
 
 
